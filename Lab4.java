@@ -10,9 +10,9 @@ public class Lab4 {
         // average();
         // formatting();
         // two_decimal_num();
-        // sum_even();
+        sum_even();
         // rock_paper_scissors();
-        test();
+        // translate();
     }//main
     
     public static void average() {
@@ -85,13 +85,17 @@ public class Lab4 {
         int num2, total;
         Scanner scan = new Scanner(System.in);
         
-        System.out.print("Please enter a number: ");
-        num2 = scan.nextInt();
-        // if input value under 2 than pop error message 
+        while (true) {
+            System.out.print("Please enter a number: ");
+            num2 = scan.nextInt();
 
-        // if (num2<2) {
-        //     System.out.println("Please")
-        // }
+            // if input value under 2 than pop error message 
+            if (num2<2) {
+                System.out.println("***** Please enter a number greater than 2 *****");
+            } else {
+                break;
+            }
+        }
 
         total = 0;
         for (int i = num1; i<num2; i += 2) {
@@ -105,33 +109,93 @@ public class Lab4 {
     public static void rock_paper_scissors() {
         String personPlay, computerPlay;
         int computerInt;
+        
 
         Scanner scan = new Scanner(System.in);
         Random generator = new Random();
 
-        //get player's play
-        System.out.println("Enter your play: R for rocks, S for scissors and P for paper.");
-        personPlay = scan.next();
-
         // generate computer's play (0,1,2)
         computerInt = generator.ints(0,3).findFirst().getAsInt();
+        computerPlay = "";
 
-        //translate computer's randomly generated play to string
-        switch (computerInt){
-            case 0:
-                computerPlay = "R";
-                break;
-            case 1:
-                computerPlay = "S";
-                break;
-            case 2:
-                computerPlay = "P";
-                break;
+        // game playes continue until who's win 
+        while (true){
+
+            //get player's play
+            System.out.println("Enter your play: R for rocks, S for scissors and P for paper.");
+            personPlay = scan.next().toUpperCase();
+
+            //translate computer's randomly generated play to string
+            switch (computerInt){
+                case 0:
+                    computerPlay = "R";
+                    System.out.println("Computer trhows Rock");
+                    break;
+                case 1:
+                    computerPlay = "S";
+                    System.out.println("Computer trhows Scissors");
+                    break;
+                case 2:
+                    computerPlay = "P";
+                    System.out.println("Computer trhows Paper");
+                    break;
+            }
+
+            //print computer's play and show result
+            if (personPlay.equals(computerPlay)) {
+                    System.out.println("It's a tie!");
+            } else if (personPlay.equals("R")) {
+
+                if (computerPlay.equals("S")) {
+                    System.out.println("Rock crushes scissors, You won!");
+                    break;
+                } else {
+                    System.out.println("Paper covers rock, You lose!");
+                    break;
+                }
+            } else if (personPlay.equals("S")) {
+
+                if (computerPlay.equals("P")) {
+                    System.out.println("Scissors cuts paper, You won!");
+                    break;
+                } else {
+                    System.out.println("Rock crushes scissors, You lose!");
+                    break;
+                }
+            } else if (personPlay.equals("P")) {
+
+                if (computerPlay.equals("R")) {
+                    System.out.println("Paper covers rock, You won!");
+                    break;
+                } else {                
+                    System.out.println("Scissors cuts paper, You lose!");
+                    break;
+                }
+            } else {
+                System.out.println("That's not a valid play. Check your spelling!");
+            }
         }
-
-        //print computer's play and show result
     }
-    public static void test() {
+    public static void translate(){
+        //Question 6
+        String sen;
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Please enter a sentence you would like translate: ");
+        sen = scan.nextLine();
+
+        int len = sen.length();
+        
+        System.out.println(String.format("Your sentence is %d characters long",len));
+        System.out.println(String.format("Your sentence start with the character: %s",sen.charAt(0)));
+        System.out.println(String.format("Your sentence end with the character: %s",sen.charAt(len-1)));
+        System.out.println(String.format("The middle character: %s",sen.charAt(len/2)));
+        System.out.println(String.format("\nTranslation is: \n oi %s oi,oi,oi!",sen));
         
     }
+
+        
 }
+
+
