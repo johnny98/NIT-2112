@@ -1,12 +1,38 @@
+import java.util.Scanner;
 
 public class test {
-    public static void main(String[]args) {
+    // public static void main(String[]args) {
+    //     int n, l, r = 0;
+    //     Scanner scan = new Scanner(System.in);
 
-        String string = "Lucy is my girl friend.";
-        int len = string.length();
-        System.out.println(len);
-        System.out.println(string.charAt(0));
-        System.out.println(string.charAt(len-1));
-        System.out.println(string.charAt(len/2));
+    //     n = scan.nextInt();
+
+    //     do {
+    //         l = n % 10;
+    //         System.out.println(l);
+    //         r = (r*10)+l;
+    //         System.out.println(r);
+    //         n=n/10;
+    //         System.out.println(n);
+    //     } while(n>0);
+
+    //     System.out.println("reverse: "+r);
+    // }
+    public static String repeat(int count, String with) {
+        return new String(new char[count]).replace("\0", with);
+    }
+    
+    public static String repeat(int count) {
+        return repeat(count, " ");
+    }
+    
+    public static void main(String[] args) {
+        for (int n = 0; n < 10; n++) {
+            System.out.println(repeat(n) + " Hello");
+        }
+    
+        for (int n = 0; n < 10; n++) {
+            System.out.println(repeat(n, ":-) ") + " Hello");
+        }
     }
 }

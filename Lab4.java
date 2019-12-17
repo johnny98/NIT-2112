@@ -10,9 +10,12 @@ public class Lab4 {
         // average();
         // formatting();
         // two_decimal_num();
-        sum_even();
+        // sum_even();
         // rock_paper_scissors();
         // translate();
+        // seven();
+        // reverse_mult();
+        square_grid();
     }//main
     
     public static void average() {
@@ -107,6 +110,7 @@ public class Lab4 {
     }//sum_even
     
     public static void rock_paper_scissors() {
+        //Question 5
         String personPlay, computerPlay;
         int computerInt;
         
@@ -176,6 +180,7 @@ public class Lab4 {
             }
         }
     }
+    
     public static void translate(){
         //Question 6
         String sen;
@@ -195,7 +200,68 @@ public class Lab4 {
         
     }
 
+    public static void seven() {
+        //Question 7
+        final int seven, seventy, last;
+        seven = 7;
+        seventy = 70;
+        last = 494;
+
+        for (int count = 1; count < last; count++) {
+            if (count % seven == 0) {
+                System.out.print(count + "\t");
+                if (count % seventy == 0) {
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+    public static void reverse_mult() {
+        //Question 8
+        int total = 1;
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scan.nextInt();
+        
+        if (num != 0 && num > 0) {
+            for (int i = 0; num > i; num--) {
+                total *= num;
+            }
+            System.out.println(total);
+        } else {
+            System.out.println("Input value must be greater than 0.");
+        }
+        
+    }
+
+    public static void square_grid() {
+        //Question 9
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.print("number for square: ");
+        int num = scan.nextInt();
+
+        //star space and double space strings
+        String sym1 = "* ";
+        String sym2 = "  ";
+
+        for (int i = 0; num > i; i++) {
+            if (i == 0 || i == (num-1)) { //horizontal lines for first row and last row 
+                System.out.println(sym1.repeat(num));
+            } else {//perpndicular lines with space inside of square
+                System.out.println("*  "+sym2.repeat(num-3)+" *");
+            }
+            // System.out.print("* ");
+            // if (i == (num-1)) {
+            //     System.out.print("\n* ");
+            
+        }
+
+
+    }
+
         
 }
-
-
